@@ -149,6 +149,7 @@ function draw() {
 //Update canvas drawing and animation
 function update() {
     movePaddle();
+    
     //draw everything
     draw();
 
