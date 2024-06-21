@@ -55,6 +55,10 @@ canvas {
     transform: scale(0.98);
 }
 
+.start-btn {
+    margin-bottom: 8px;
+}
+
 .rules-btn {
     position: absolute;
     top: 30px;

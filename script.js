@@ -1,6 +1,7 @@
 const rulesBtn = document.getElementById('rules-btn');
 const closeBtn = document.getElementById('close-btn');
 const rules = document.getElementById('rules');
+const startBtn = document.getElementById('start-btn');
 
 const canvas = document.getElementById('canvas');
 
@@ -17,6 +18,8 @@ let score = 0;
 rulesBtn.addEventListener('click', () => rules.classList.add('show'));
 closeBtn.addEventListener('click', () => rules.classList.remove('show'));
 
+//start button
+startBtn.addEventListener('click', update);
 
 
 //<-------------------KEYBOARD EVENTS------------------->
@@ -170,11 +173,36 @@ function moveBall() {
                 ) {
                     ball.dy *= -1;
                     brick.visible = false;
+
+                    increaseScore();
                 }
             }
         });
     });
+
+    // hit bottom all lose
+    if(ball.y + ball.size > canvas.height) {
+        showAllBricks();
+        score = 0;
+    }
 }
+
+//increase score
+function increaseScore() {
+    score++;
+
+    if(score % (brickRowCount * brickRowCount) === 0 ) {
+        showAllBricks();
+    }
+}
+
+// make bricks appear again
+function showAllBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => (brick.visible = true));
+    });
+}
+
 
 // call function
 function draw() {
@@ -197,5 +225,3 @@ function update() {
 
     requestAnimationFrame(update);
 }
-
-update();

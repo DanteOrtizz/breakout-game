@@ -8,5 +8,5 @@
 8. Keyboard event handlers to move paddle   (X)
 9. Move ball    (x)
 10. Add wall bounderies (x)
-11. Increse score when bricks break    () 
-12. Lose - redraw bricks, reset score   ()
+11. Increse score when bricks break    (X) 
+12. Lose - redraw bricks, reset score   (X)
